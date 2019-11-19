@@ -1,0 +1,29 @@
+language: cpp
+
+#dist: trusty
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      sudo: required
+   # - os: osx
+   #   osx_image: xcode9.3
+
+script:
+ - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./travis-linux.sh; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./travis-macos.sh; fi
+
+deploy:
+  provider: releases
+  file_glob: true
+  skip_cleanup: true
+  draft: true
+  prerelease: false
+  api_key:
+    secure: "todo"
+  file: "etf*.7z"
+  on:
+    tags: true
+
+notifications:
+  email: false

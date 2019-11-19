@@ -174,3 +174,8 @@ pip-log.txt
 #############
 *.o
 *.so
+code/CMakeCache.txt
+code/CMakeFiles/
+code/Makefile
+code/cmake_install.cmake
+code/config.h
